@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>معرض الصور</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #181818;
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      padding: 40px;
+      width: 80%;
+    }
+
+    .container img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid rgba(255,255,255,0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .container.active img {
+      filter: blur(5px);
+      transform: scale(1);
+    }
+
+    .container img.active {
+      filter: none;
+      transform: scale(1.1);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+      z-index: 2;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 20px;
+      }
+
+      .container img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 style="color:red;">hallo world</h1>
+  <h1>________________________</h1>
+  <h2 style="color:#987">My name is Saeed Mohammed the website programmer. 
+  </h2>
+  <br>
+  
+
+  <div class="container">
+    <img src="pohto/a1.jpg" alt="">
+    <img src="pohto/a3.jpg" alt="">
+    <img src="pohto/a4.jpg" alt="">
+    <img src="pohto/a5.jpg" alt="">
+    <img src="pohto/a6.jpg" alt="">
+    <img src="pohto/a7.jpg" alt="">
+    <img src="pohto/a8.jpg" alt="">
+    <img src="pohto/a9.jpg" alt="">
+    <img src="pohto/a10.jpg" alt="">
+    <img src="pohto/a11.jpg" alt="">
+    <img src="pohto/a12.jpg" alt="">
+    <img src="pohto/a13.jpg" alt="">
+    <img src="pohto/a14.jpg" alt="">
+    <img src="pohto/a15.jpg" alt="">
+    <img src="pohto/a16.jpg" alt="">
+    <img src="pohto/a17.jpg" alt="">
+    <img src="pohto/a18.jpg" alt="">
+    <img src="pohto/a19.jpg" alt="">
+    <img src="pohto/a20.jpg" alt="">
+    <img src="pohto/a21.jpg" alt="">
+    <img src="pohto/a22.jpg" alt="">
+
+  </div>
+
+  <script>
+    const container = document.querySelector('.container');
+    const images = document.querySelectorAll('.container img');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        // لو في صورة نشطة بالفعل
+        if (img.classList.contains('active')) {
+          img.classList.remove('active');
+          container.classList.remove('active');
+        } else {
+          images.forEach(i => i.classList.remove('active'));
+          img.classList.add('active');
+          container.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
